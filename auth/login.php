@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../config/db.php";
+require_once "../config/db.php"; // make sure this path is correct
 
 $error = "";
 
@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Email and password are required";
     } else {
 
+        // Check user in database
         $query = "SELECT id, name, password FROM users WHERE email = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -23,10 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (password_verify($password, $user["password"])) {
 
+                // Set session variables
                 $_SESSION["user_id"] = $user["id"];
                 $_SESSION["user_name"] = $user["name"];
 
-                header("Location: ../dashboard.php");
+                // Redirect to dashboard
+                header("Location: ../index.php");
                 exit;
 
             } else {
@@ -87,6 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 4px;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 15px;
         }
 
         button:hover {
@@ -97,6 +101,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: red;
             text-align: center;
             margin-bottom: 10px;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .signup-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -123,6 +139,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <button type="submit">Login</button>
     </form>
+
+    <!-- Centered Sign Up Link -->
+    <div class="signup-link">
+        Don't have an account? <a href="register.php">Sign Up</a>
+    </div>
 
 </div>
 
