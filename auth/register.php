@@ -49,32 +49,116 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .register-box {
+            max-width: 420px;
+            margin: 90px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Sign Up</h2>
+<div class="register-box">
 
-<?php
-if ($error) {
-    echo "<p style='color:red;'>$error</p>";
-}
-if ($success) {
-    echo "<p style='color:green;'>$success</p>";
-}
-?>
+    <h2>Sign Up 📝</h2>
 
-<form method="POST">
-    <label>Name:</label><br>
-    <input type="text" name="name"><br><br>
+    <?php if ($error) { ?>
+        <p class="error"><?= $error ?></p>
+    <?php } ?>
 
-    <label>Email:</label><br>
-    <input type="email" name="email"><br><br>
+    <?php if ($success) { ?>
+        <p class="success"><?= $success ?></p>
+    <?php } ?>
 
-    <label>Password:</label><br>
-    <input type="password" name="password"><br><br>
+    <form method="POST">
+        <label>Name</label>
+        <input type="text" name="name" required>
 
-    <button type="submit">Register</button>
-</form>
+        <br><br>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <br><br>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="login-link">
+        Already have an account? <a href="login.php">Login</a>
+    </div>
+
+</div>
 
 </body>
 </html>
