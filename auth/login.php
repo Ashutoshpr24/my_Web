@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../config/db.php"; // make sure this path is correct
+require_once "../config/db.php";
 
 $error = "";
 
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Email and password are required";
     } else {
 
-        // Check user in database
+        // checking user in db
         $query = "SELECT id, name, password FROM users WHERE email = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -24,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (password_verify($password, $user["password"])) {
 
-                // Set session variables
+                // setting session variables
                 $_SESSION["user_id"] = $user["id"];
                 $_SESSION["user_name"] = $user["name"];
 
-                // Redirect to dashboard
+                // redirecting to dashboard
                 header("Location: ../index.php");
                 exit;
 
@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Login</button>
     </form>
 
-    <!-- Centered Sign Up Link -->
+    <!-- centered sign up link -->
     <div class="signup-link">
         Don't have an account? <a href="register.php">Sign Up</a>
     </div>
