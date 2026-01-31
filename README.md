@@ -79,3 +79,83 @@ http://localhost/your-project-folder
 ```
 
 ---
+
+## Approach & Design Explanation
+
+* **Authentication System**
+
+  * User registration and login implemented using Core PHP.
+  * Secure password storage using hashing.
+
+* **Authorization**
+
+  * Each user can access only their own contacts.
+  * Session validation on all protected pages.
+
+* **CRUD Operations**
+
+  * Create contacts using a dedicated form.
+  * View contacts in a tabular format.
+  * Update existing contact details.
+  * Delete contacts with confirmation alert.
+
+* **Security Measures**
+
+  * Prepared statements to prevent SQL Injection.
+  * Password hashing using `password_hash()` and verification using `password_verify()`.
+  * Session-based access control.
+
+* **User Interface**
+
+  * Simple and clean UI using HTML and CSS.
+  * Dashboard with clickable cards for CRUD actions.
+  * JavaScript alert for delete confirmation.
+
+---
+
+## Test Cases
+
+### Authentication
+
+* Register with valid details → Registration success message displayed
+* Register with existing email → Error message displayed
+* Login with valid credentials → Redirect to dashboard
+* Login with invalid credentials → Error message displayed
+
+### Contacts Management
+
+* Add contact with valid data → Contact saved successfully
+* Add contact without name or phone → Validation error shown
+* View contacts → Only logged-in user’s contacts displayed
+* Edit contact details → Updated successfully
+* Delete contact → Confirmation alert and deletion
+
+### Security & Session
+
+* Access dashboard without login → Redirect to login page
+* Access another user’s contact → Not permitted
+* Logout → Session destroyed and redirected to login page
+
+### UI Verification
+
+* All dashboard cards are fully clickable
+* Buttons and links function correctly
+* Proper success and error messages displayed
+
+---
+
+## Technologies Used
+
+* PHP (Core PHP)
+* MySQL
+* HTML5
+* CSS3
+* JavaScript
+* Git & GitHub
+
+---
+
+## 👤 Author
+
+**Ashutosh Prajapati**
+Trainee Software Developer Applicant
