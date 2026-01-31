@@ -39,7 +39,7 @@ Run the following SQL query:
 CREATE DATABASE contact_manager;
 ```
 
-### 5. Create Tables
+### 5. Create Tablesgit 
 
 Run the following SQL queries:
 
