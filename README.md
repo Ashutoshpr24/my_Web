@@ -31,11 +31,10 @@ xampp/htdocs/
 ### 4. Create Database
 
 * Open **phpMyAdmin**
-* Create a database named:
+* Create a database named: "contact_manager"
 
-```
-contact_manager
-```
+Run the following SQL query:
+
 ```sql
 CREATE DATABASE contact_manager;
 ```
