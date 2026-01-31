@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name) || empty($phone)) {
         $error = "Name and phone are required";
     } else {
-
+//insert contacts
         $query = "INSERT INTO contacts (user_id, name, phone, email) VALUES (?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "isss", $user_id, $name, $phone, $email);

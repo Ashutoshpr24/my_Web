@@ -62,7 +62,6 @@ $totalContacts = $data["total"];
             margin-top: 20px;
         }
 
-        /* Card styling */
         .cards a.card {
             flex: 1;
             min-width: 220px;
@@ -84,7 +83,6 @@ $totalContacts = $data["total"];
             transform: scale(1.05);
         }
 
-        /* Card colors */
         .card.add { background-color: #28a745; }
         .card.view { background-color: #007bff; }
         .card.update { background-color: #ffc107; color: #000; }
