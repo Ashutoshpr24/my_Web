@@ -36,6 +36,9 @@ xampp/htdocs/
 ```
 contact_manager
 ```
+```sql
+CREATE DATABASE contact_manager;
+```
 
 ### 5. Create Tables
 
