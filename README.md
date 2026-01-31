@@ -158,4 +158,5 @@ http://localhost/your-project-folder
 ## 👤 Author
 
 **Ashutosh Prajapati**
+
 Trainee Software Developer Applicant
